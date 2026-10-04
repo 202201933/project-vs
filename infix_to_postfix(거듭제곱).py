@@ -37,7 +37,29 @@ class fix:
     def is_operand(self, token):
         return token.isdigit() #숫자인지 판별
         
+    def evaluate(self, postfix):
+        stack = []
+        tokens = postfix.split()
+        for token in tokens:
+            if token.isdigit():
+                stack.append(int(token))
+            else:
+                a = stack.pop()
+                b = stack.pop()
+                if token == '+':
+                    stack.append(a + b)
+                elif token == '-':
+                    stack.append(a - b)
+                elif token == '*':
+                    stack.append(a * b)
+                elif token == '/':
+                    stack.append(a / b)
+                elif token == '^':
+                    stack.append(a ** b)
+        return stack[0] #모든 계산이 끝난 후 남아있는 값이 최종 연산한 값
+
 
 obj = fix() #객체 생성
 result = obj.infix_to_postfix('2 ^ 3 ^ 2') 
-print(result)
+print('후위표기식:', result)
+print('계산결과:', obj.evaluate(result))
