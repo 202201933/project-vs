@@ -33,20 +33,20 @@ class DoublyLinkedList:
         return newnode
         
     def insert_after(self,target_value,data):
-        target = self.search(target_value)
-        if target is None:
+        target = self.search(target_value) #서치함수로 타겟찾음
+        if target is None: #타겟이 없으면 None
             print("타겟 없음")
             return None
         
-        newnode = DListNode(data)
-        newnode.llink = target
-        newnode.rlink = target.rlink
+        newnode = DListNode(data) #뉴노드 생성
+        newnode.llink = target #타겟노드 다음 삽입 -> 뉴노드의 왼쪽링크에 타겟 주소가 있음
+        newnode.rlink = target.rlink #타겟의 오른쪽링크 = 기존 타겟 다음에 있던 노드의 주소 -> 뉴노드의 오른쪽링크
 
-        if target.rlink is not None:
-            target.rlink.llink = newnode
-        else:
+        if target.rlink is not None: #기존 타겟 다음에 있던 노드가 있으면
+            target.rlink.llink = newnode #그 노드의 왼쪽 링크를 뉴노드와 연결(중간에 삽입하라는 뜻)
+        else: #꼬리라면 마지막 삽입
             self.tail = newnode
-        target.rlink = newnode
+        target.rlink = newnode #뉴노드의 주소는 타겟의 오른쪽링크에
         return newnode
 
     def delete_first(self):
