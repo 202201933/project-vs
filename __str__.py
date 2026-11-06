@@ -1,5 +1,5 @@
 class Person:
-    def __init__(self, name, age):
+    def __init__(self, name, age): #생성자
         self.name = name
         self.age = age
 
@@ -12,7 +12,7 @@ print(p) #내부적으로 str 호출함
 print(str(p)) #직접 호출
 
 class Vector:
-    def __init__(self,x,y):
+    def __init__(self, x, y):
         self.x = x
         self.y = y
 

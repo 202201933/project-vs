@@ -17,7 +17,7 @@ class fix:
                 while self.stack and ((self.precedence(self.stack[-1]) > self.precedence(token)) #스택의 top 연산자가 현재 연산자보다 우선순위가 높으면 pop
                                       or (self.precedence(self.stack[-1]) == self.precedence(token) and token != '^')): #연산자 우선순위가 같고 ^가 아닐때
                     self.output.append(self.stack.pop()) #스택에서 연산자를 꺼내서 출력 리스트에 추가
-                self.stack.append(token) #스택이 비면 연산자를 스택에 넣음
+                self.stack.append(token) #연산자일때 스택에 넣음
 
         while self.stack:
             self.output.append(self.stack.pop())

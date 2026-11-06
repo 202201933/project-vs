@@ -8,6 +8,6 @@ def quick_sort(arr):
     
     return quick_sort(left) + middle + quick_sort(right)
 
-arr = [4, 7, 3, 5, 1, 2, 4]
+arr = [5, 3, 8, 4, 9, 1, 6, 2, 7]
 print("정렬 전:", arr)
 print("정렬 후:", quick_sort(arr))
